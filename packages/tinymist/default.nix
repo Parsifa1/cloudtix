@@ -11,7 +11,7 @@ rustPlatform.buildRustPackage rec {
     owner = "Myriad-Dreamin";
     repo = pname;
     rev = version;
-    hash = "sha256-NZm7bOK00IKfH+Mof1/cNdyRW4nsESBYXGfXG1RzgLs=";
+    hash = "sha256-iBisN3zpJy9sU2H/WVEH8i6q3xCl4kVpoGoNxIUEnt4=";
   };
 
   # cargoHash = "";
