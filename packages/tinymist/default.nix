@@ -5,7 +5,7 @@
 }:
 rustPlatform.buildRustPackage rec {
   pname = "tinymist";
-  version = "v0.11.1-rc1";
+  version = "v0.11.1-rc2";
 
   src = fetchFromGitHub {
     owner = "Myriad-Dreamin";
