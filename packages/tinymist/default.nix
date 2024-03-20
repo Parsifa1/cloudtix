@@ -19,6 +19,7 @@ rustPlatform.buildRustPackage rec {
     outputHashes = {
       "typst-0.11.0" = "sha256-UzZ0tbC6Dhn178GQDyLl70WTp3h5WdaBCsEKgLisZ2M=";
       "reflexo-0.4.2-rc8" = "sha256-UzZ0tbC6Dhn178GQDyLl70WTp3h5WdaBCsEKgLisZ2M=";
+      "typst-assets-0.10.0" = "sha256-UzZ0tbC6Dhn178GQDyLl70WTp3h5WdaBCsEKgLisZ2M=";
     };
   };
 
