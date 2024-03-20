@@ -11,6 +11,7 @@ in
     pname = "tinymist";
     version = "v0.11.1-rc2";
 
+    auditable = false;
     src = fetchFromGitHub {
       repo = pname;
       rev = version;
