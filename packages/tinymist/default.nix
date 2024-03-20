@@ -18,15 +18,10 @@ in
       hash = "sha256-iBisN3zpJy9sU2H/WVEH8i6q3xCl4kVpoGoNxIUEnt4=";
     };
 
-    # cargoHash = "";
     nativeBuildInputs = [pkgs.git];
 
-    buildPhase = ''
-      export VERGEN_GIT_SHA=${gitRev}
-      export VERGEN_GIT_DESCRIBE=${gitDescribe}
-
-      # 你的其他构建命令
-    '';
+    env.VERGEN_GIT_SHA = gitRev;
+    env.VERGEN_GIT_DESCRIBE = gitDescribe;
 
     cargoLock = {
       lockFile = ./Cargo.lock;
