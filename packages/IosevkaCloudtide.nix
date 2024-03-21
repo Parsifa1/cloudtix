@@ -6,7 +6,7 @@ stdenvNoCC.mkDerivation rec {
 
   src = fetchurl {
     url = "https://github.com/Parsifa1/IosevkaCloudtide/tree/master";
-    hash = "sha256-9crFUfj1mOXg4gD607jL2eHq8wlq/yEi5sgzKJ5YavM=";
+    hash = "sha256-3tjXUBW5wWSVbDFi02xSr9Ua4+ONwxJwN+rchzZry/s=";
   };
 
   installPhase = ''
