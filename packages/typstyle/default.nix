@@ -1,23 +1,23 @@
-{
-  lib,
-  rustPlatform,
-  fetchFromGitHub,
-  pkg-config,
-  libgit2,
-  zlib,
+{ lib
+, rustPlatform
+, fetchFromGitHub
+, pkg-config
+, libgit2
+, zlib
 }:
+
 rustPlatform.buildRustPackage rec {
   pname = "typstyle";
-  version = "0.11.0";
+  version = "unstable-2024-03-21";
 
   src = fetchFromGitHub {
     owner = "Enter-tainer";
     repo = "typstyle";
-    rev = "v${version}";
-    hash = "sha256-nzIo33OuGhTWL2zmxUsT3O8lm+Cq1ydft4s7aLaNgg8=";
+    rev = "6947d6b68904d31aee40fd6c38326ea694449519";
+    hash = "sha256-azN9uNUGo9ycRlwQfUTLNC9QgSA49swviJNx2gv7CSs=";
   };
 
-  cargoHash = "sha256-keBNz9ItE91CxPulgpfOMPs97hfFij96JmKGaVnio4g=";
+  cargoHash = "sha256-CTwUpH45XqYtyRUsQ+Uuj38iZnCkyNQLcBSFhIDvxD0=";
 
   nativeBuildInputs = [
     pkg-config
@@ -32,7 +32,7 @@ rustPlatform.buildRustPackage rec {
     description = "Format your typst source code";
     homepage = "https://github.com/Enter-tainer/typstyle";
     license = licenses.asl20;
-    maintainers = with maintainers; [parsifa1];
+    maintainers = with maintainers; [ ];
     mainProgram = "typstyle";
   };
 }
