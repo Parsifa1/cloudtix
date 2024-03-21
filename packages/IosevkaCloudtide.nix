@@ -2,10 +2,10 @@
 
 stdenvNoCC.mkDerivation rec {
   pname = "IosevkaCloudtide";
-  version = "main";
+  version = "master";
 
   src = fetchurl {
-    url = "https://github.com/Parsifa1/IosevkaCloudtide/tree/master";
+    url = "https://github.com/Parsifa1/IosevkaCloudtide/archive/refs/heads/${version}.zip";
     hash = "sha256-3tjXUBW5wWSVbDFi02xSr9Ua4+ONwxJwN+rchzZry/s=";
   };
 
