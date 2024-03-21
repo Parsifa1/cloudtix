@@ -5,7 +5,7 @@ stdenvNoCC.mkDerivation rec {
   version = "master";
 
   src = fetchurl {
-    url = "https://github.com/Parsifa1/IosevkaCloudtide/archive/refs/heads/${version}.zip";
+    url = "https://github.com/Parsifa1/IosevkaCloudtide/archive/refs/heads/${version}.tar.gz";
     hash = "sha256-HhuXu73vPqtlcTxvO6Y4olxXsJhs9pDOhzuH6+aOBRI=";
   };
 
