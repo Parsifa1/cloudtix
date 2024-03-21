@@ -1,12 +1,13 @@
 {
-  inputs.vsc = {
-    url = "github:nix-community/nix-vscode-extensions";
-    inputs.nixpkgs.follows = "nixpkgs";
+  inputs = {
+    vsc = {
+      url = "github:nix-community/nix-vscode-extensions";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   description = "My personal NUR repository";
   outputs = {
     self,
-    inputs,
     nixpkgs,
     vsc,
   }: let
@@ -20,7 +21,7 @@
     ];
     forAllSystems = f: nixpkgs.lib.genAttrs systems (system: f system);
   in {
-    overlay = _final: prev: {cloudtide = inputs.cloudtide.packages."${prev.system}";};
+    overlay = _final: prev: {cloudtide = self.packages."${prev.system}";};
     legacyPackages = forAllSystems (system:
       import ./default.nix {
         pkgs = nixpkgs.legacyPackages.${system}.appendOverlays [vsc.overlays.default];
