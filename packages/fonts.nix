@@ -1,11 +1,11 @@
 { lib, stdenvNoCC, fetchurl }:
 
 stdenvNoCC.mkDerivation rec {
-  pname = "IosevkaCloudtide";
+  pname = "fonts";
   version = "master";
 
   src = fetchurl {
-    url = "https://github.com/Parsifa1/IosevkaCloudtide/archive/refs/heads/${version}.tar.gz";
+    url = "https://github.com/Parsifa1/Fonts/archive/refs/heads/${version}.tar.gz";
     hash = "sha256-+wrGkd80WC4DsN/8xywj4V76cl0LaaDW+ynLsq2kM8E=";
   };
 
@@ -19,7 +19,7 @@ stdenvNoCC.mkDerivation rec {
   '';
 
   meta = with lib; {
-    homepage = "https://github.com/Parsifa1/IosevkaCloudtide";
+    homepage = "https://github.com/Parsifa1/Fonts";
     description = "test";
     license = licenses.ofl;
     platforms = platforms.all;
