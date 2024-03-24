@@ -6,7 +6,7 @@ stdenvNoCC.mkDerivation rec {
 
   src = fetchurl {
     url = "https://github.com/Parsifa1/Fonts/archive/refs/heads/${version}.tar.gz";
-    hash = "sha256-+wrGkd80WC4DsN/8xywj4V76cl0LaaDW+ynLsq2kM8E=";
+    hash = "sha256-lebL8iGvddasqez5hGbr2bc05PCni0oQ9Du20IE7jog=";
   };
 
   installPhase = ''
