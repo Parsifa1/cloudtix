@@ -2500,6 +2500,15 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "8b870d8c151b6f2fb93e84a13146138f05d02ed11c7e7c54f8826aaaf7c9f184"
 
 [[package]]
+name = "pixglyph"
+version = "0.3.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "e2e0f8ad4c197db38125b880c3c44544788665c7d5f4c42f5a35da44bca1a712"
+dependencies = [
+ "ttf-parser",
+]
+
+[[package]]
 name = "pkg-config"
 version = "0.3.30"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2702,9 +2711,9 @@ dependencies = [
 
 [[package]]
 name = "reflexo"
-version = "0.4.2-rc9"
+version = "0.5.0-rc2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "f3bf3d6c80be65ec408823031e560758c1de427601d61a82fdea0d0ecb7794f4"
+checksum = "247ea8050cb5c88b41a68b3269f5a2eb7ebff55851a564d96b035643418346e6"
 dependencies = [
  "base64 0.22.0",
  "bitvec",
@@ -3614,7 +3623,7 @@ dependencies = [
 
 [[package]]
 name = "tinymist"
-version = "0.11.1-rc2"
+version = "0.11.1"
 dependencies = [
  "anyhow",
  "async-trait",
@@ -3648,6 +3657,8 @@ dependencies = [
  "typst-assets",
  "typst-pdf",
  "typst-preview",
+ "typst-render",
+ "typst-svg",
  "typst-ts-compiler",
  "typst-ts-core",
  "vergen",
@@ -3656,7 +3667,7 @@ dependencies = [
 
 [[package]]
 name = "tinymist-query"
-version = "0.11.1-rc2"
+version = "0.11.1"
 dependencies = [
  "anyhow",
  "comemo",
@@ -4033,9 +4044,9 @@ dependencies = [
 
 [[package]]
 name = "typst-preview"
-version = "0.11.1"
+version = "0.11.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "6b8eebe95602e6723ce6e3c06e4c32000ab1bde2d0e775248b74ee2373aeff87"
+checksum = "fc1323cc2de067d19919891a1ee3f43af5c96d91decce44044347137d3e06fce"
 dependencies = [
  "anyhow",
  "await-tree",
@@ -4067,6 +4078,43 @@ dependencies = [
 ]
 
 [[package]]
+name = "typst-render"
+version = "0.11.0"
+source = "git+https://github.com/Myriad-Dreamin/typst.git?branch=tinymist-v0.11.0#88608109579929b0c1fbab12d7a2afaea0baaf74"
+dependencies = [
+ "bytemuck",
+ "comemo",
+ "flate2",
+ "image",
+ "pixglyph",
+ "resvg",
+ "roxmltree",
+ "tiny-skia",
+ "ttf-parser",
+ "typst",
+ "typst-macros",
+ "typst-timing",
+ "usvg",
+]
+
+[[package]]
+name = "typst-svg"
+version = "0.11.0"
+source = "git+https://github.com/Myriad-Dreamin/typst.git?branch=tinymist-v0.11.0#88608109579929b0c1fbab12d7a2afaea0baaf74"
+dependencies = [
+ "base64 0.22.0",
+ "comemo",
+ "ecow",
+ "flate2",
+ "ttf-parser",
+ "typst",
+ "typst-macros",
+ "typst-timing",
+ "xmlparser",
+ "xmlwriter",
+]
+
+[[package]]
 name = "typst-syntax"
 version = "0.11.0"
 source = "git+https://github.com/Myriad-Dreamin/typst.git?branch=tinymist-v0.11.0#88608109579929b0c1fbab12d7a2afaea0baaf74"
@@ -4095,9 +4143,9 @@ dependencies = [
 
 [[package]]
 name = "typst-ts-compiler"
-version = "0.4.2-rc9"
+version = "0.5.0-rc2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "478dbcd334466a939420fa9e9429e0ecaa8ec8c5a943e74862b2b46b364e2938"
+checksum = "c18cf7d96c0c558901b3f7e3f5200ecb7e3d7d3dcc5a1222e94bc875237ff352"
 dependencies = [
  "append-only-vec",
  "base64 0.22.0",
@@ -4134,9 +4182,9 @@ dependencies = [
 
 [[package]]
 name = "typst-ts-core"
-version = "0.4.2-rc9"
+version = "0.5.0-rc2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "2d109fb49a9ffa1d9f7126b317313d29257ec0d34ae7a34c65d16ed1fea2b448"
+checksum = "a69135c380eb60efa4aeabd986d27d82ecd1b4c843fd3393992b449409317847"
 dependencies = [
  "base64 0.22.0",
  "base64-serde",
@@ -4172,9 +4220,9 @@ dependencies = [
 
 [[package]]
 name = "typst-ts-svg-exporter"
-version = "0.4.2-rc9"
+version = "0.5.0-rc2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "f909564a69478f3e244ddc4380dc337f74edfa5d4ce7551ddfedc6f5d32f48b6"
+checksum = "b6063f63c8e3ba3d4d7f4cb1a8fd96b096e8e713f24783278fea98dac0746966"
 dependencies = [
  "base64 0.22.0",
  "comemo",
