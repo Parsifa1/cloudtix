@@ -11,13 +11,13 @@
 }:
 rustPlatform.buildRustPackage rec {
   pname = "tinymist";
-  version = "unstable-2024-04-05";
+  version = "0.11.3";
 
   src = fetchFromGitHub {
     owner = "Myriad-Dreamin";
     repo = "tinymist";
-    rev = "c2f2b214a2c3b2cc7a679b0a645517a1b2001b4d";
-    hash = "sha256-n4exM+zjyBE8qf6hQ8AavE+m62kFFLary1jJWa9hfSc=";
+    rev = "v${version}";
+    hash = "sha256-0wVCOFWA6PX1UHe3rGWbCW4zSJHvGrW9OiFcH2wvayA=";
   };
 
   doCheck = false;
