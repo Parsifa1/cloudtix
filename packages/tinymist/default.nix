@@ -1,26 +1,24 @@
-{
-  lib,
-  rustPlatform,
-  fetchFromGitHub,
-  pkg-config,
-  libgit2,
-  openssl,
-  zlib,
-  stdenv,
-  darwin,
+{ lib
+, rustPlatform
+, fetchFromGitHub
+, pkg-config
+, libgit2
+, openssl
+, zlib
+, stdenv
+, darwin
 }:
+
 rustPlatform.buildRustPackage rec {
   pname = "tinymist";
-  version = "0.11.3";
+  version = "0.11.4";
 
   src = fetchFromGitHub {
     owner = "Myriad-Dreamin";
     repo = "tinymist";
     rev = "v${version}";
-    hash = "sha256-0wVCOFWA6PX1UHe3rGWbCW4zSJHvGrW9OiFcH2wvayA=";
+    hash = "sha256-zMwyM4Y+nn/u/UXGlOxGB/JApgmYQW4qAek40uJO0Fc=";
   };
-
-  doCheck = false;
 
   cargoLock = {
     lockFile = ./Cargo.lock;
@@ -35,24 +33,22 @@ rustPlatform.buildRustPackage rec {
     pkg-config
   ];
 
-  buildInputs =
-    [
-      libgit2
-      openssl
-      zlib
-    ]
-    ++ lib.optionals stdenv.isDarwin [
-      darwin.apple_sdk.frameworks.CoreFoundation
-      darwin.apple_sdk.frameworks.CoreServices
-      darwin.apple_sdk.frameworks.Security
-    ];
+  buildInputs = [
+    libgit2
+    openssl
+    zlib
+  ] ++ lib.optionals stdenv.isDarwin [
+    darwin.apple_sdk.frameworks.CoreFoundation
+    darwin.apple_sdk.frameworks.CoreServices
+    darwin.apple_sdk.frameworks.Security
+  ];
 
   meta = with lib; {
-    description = "";
+    description = "Tinymist [ˈtaɪni mɪst] is an integrated language service for Typst [taɪpst";
     homepage = "https://github.com/Myriad-Dreamin/tinymist";
     changelog = "https://github.com/Myriad-Dreamin/tinymist/blob/${src.rev}/CHANGELOG.md";
     license = licenses.asl20;
-    maintainers = with maintainers; [parsifa1];
+    maintainers = with maintainers; [ ];
     mainProgram = "tinymist";
   };
 }
