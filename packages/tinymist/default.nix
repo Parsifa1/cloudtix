@@ -1,26 +1,27 @@
-{
-  lib,
-  rustPlatform,
-  fetchFromGitHub,
-  pkg-config,
-  libgit2,
-  openssl,
-  zlib,
-  stdenv,
-  darwin,
+{ lib
+, rustPlatform
+, fetchFromGitHub
+, pkg-config
+, libgit2
+, openssl
+, zlib
+, stdenv
+, darwin
 }:
+
 rustPlatform.buildRustPackage rec {
   pname = "tinymist";
-  version = "0.11.4";
+  # Please update the corresponding vscode extension when updating
+  # this derivation.
+  version = "0.11.6";
 
   src = fetchFromGitHub {
     owner = "Myriad-Dreamin";
     repo = "tinymist";
     rev = "v${version}";
-    hash = "sha256-zMwyM4Y+nn/u/UXGlOxGB/JApgmYQW4qAek40uJO0Fc=";
+    hash = "sha256-7YG15kt+pIxAK22QYiTApu5lBV6Afe3Jss6L5dTGsGI=";
   };
 
-  doCheck = false;
   cargoLock = {
     lockFile = ./Cargo.lock;
     outputHashes = {
@@ -34,24 +35,27 @@ rustPlatform.buildRustPackage rec {
     pkg-config
   ];
 
-  buildInputs =
-    [
-      libgit2
-      openssl
-      zlib
-    ]
-    ++ lib.optionals stdenv.isDarwin [
-      darwin.apple_sdk.frameworks.CoreFoundation
-      darwin.apple_sdk.frameworks.CoreServices
-      darwin.apple_sdk.frameworks.Security
-    ];
+  buildInputs = [
+    libgit2
+    openssl
+    zlib
+  ] ++ lib.optionals stdenv.isDarwin [
+    darwin.apple_sdk_11_0.frameworks.CoreFoundation
+    darwin.apple_sdk_11_0.frameworks.CoreServices
+    darwin.apple_sdk_11_0.frameworks.Security
+    darwin.apple_sdk_11_0.frameworks.SystemConfiguration
+  ];
+
+  checkFlags = [
+    "--skip=e2e"
+  ];
 
   meta = with lib; {
-    description = "Tinymist [ˈtaɪni mɪst] is an integrated language service for Typst [taɪpst";
-    homepage = "https://github.com/Myriad-Dreamin/tinymist";
     changelog = "https://github.com/Myriad-Dreamin/tinymist/blob/${src.rev}/CHANGELOG.md";
+    description = "Tinymist is an integrated language service for Typst";
+    homepage = "https://github.com/Myriad-Dreamin/tinymist";
     license = licenses.asl20;
-    maintainers = with maintainers; [];
     mainProgram = "tinymist";
+    maintainers = with maintainers; [ lampros ];
   };
 }
