@@ -1,9 +1,9 @@
 {
   inputs = {
-    vsc = {
-      url = "github:nix-community/nix-vscode-extensions";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # vsc = {
+    #   url = "github:nix-community/nix-vscode-extensions";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
   };
   description = "My personal NUR repository";
   outputs = {
