@@ -19,7 +19,7 @@
     overlay = _final: prev: {cloudtide = self.packages."${prev.system}";};
     legacyPackages = forAllSystems (system:
       import ./default.nix {
-        # pkgs = nixpkgs.legacyPackages.${system}.appendOverlays [vsc.overlays.default];
+        pkgs = nixpkgs.legacyPackages.${system}.appendOverlays [];
       });
     packages = forAllSystems (system: nixpkgs.lib.filterAttrs (_: v: nixpkgs.lib.isDerivation v) self.legacyPackages.${system});
   };
