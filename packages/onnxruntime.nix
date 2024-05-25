@@ -31,7 +31,7 @@
       owner = "onnx";
       repo = "onnx";
       rev = "refs/tags/v1.8.1";
-      sha256 = "sha256-WwbfUijV67LL69RPgz+4m6EcwSyBNFweGUe0jkYRpbg=";
+      sha256 = "sha256-+1zNnZ4lAyVYRptfk0PV7koIX9FqcfD1Ah33qj/G2rA=";
     };
     "SafeInt/safeint" = fetchFromGitHub {
       owner = "dcleblanc";
