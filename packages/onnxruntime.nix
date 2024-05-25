@@ -2,7 +2,7 @@
   fetchurl,
   lib,
   stdenvNoCC,
-  makeWrapper,
+  # makeWrapper,
 }:
 stdenvNoCC.mkDerivation rec {
   pname = "onnxruntime";
@@ -13,9 +13,10 @@ stdenvNoCC.mkDerivation rec {
     sha256 = "sha256-y2i6PuPrgZq6dNaBXKObmgYD42Ng77g5jy4niy/2bJ0=";
   };
 
-  nativeBuildInputs = [makeWrapper];
+  # nativeBuildInputs = [makeWrapper];
 
   installPhase = ''
+    mkdir -p $out
     cp -r ./* $out/
   '';
 
