@@ -10,7 +10,7 @@ stdenvNoCC.mkDerivation rec {
 
   src = fetchurl {
     url = "https://github.com/microsoft/onnxruntime/releases/download/v${version}/${pname}-linux-x64-${version}.tgz";
-    sha256 = "sha256-bTW9Pc3rvH+c8VIlDDEtAXyA3sajVyY5Aqr6+SxaMF4=";
+    sha256 = "sha256-y2i6PuPrgZq6dNaBXKObmgYD42Ng77g5jy4niy/2bJ0=";
   };
 
   nativeBuildInputs = [makeWrapper];
