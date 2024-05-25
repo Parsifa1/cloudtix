@@ -3,6 +3,6 @@
   typstyle = pkgs.callPackage ./packages/typstyle {};
   fonts = pkgs.callPackage ./packages/fonts.nix {};
   tinymist = pkgs.callPackage ./packages/tinymist {};
-  tdlib = pkgs.callPackage ./packages/tdlib.nix {};
+  onnxruntime = pkgs.callPackage ./packages/onnxruntime.nix {};
   # delance = pkgs.callPackage ./packages/delance.nix  {};
 }
