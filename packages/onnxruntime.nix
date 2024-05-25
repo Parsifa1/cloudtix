@@ -49,7 +49,7 @@ in
       owner = "microsoft";
       repo = "onnxruntime";
       rev = "v${version}";
-      sha256 = "sha256-kWl0xrbTQL2FBSvpiqTcaj8uZV+ZV8gJJvj4/I0jopw=";
+      sha256 = "sha256-L8JLNh2rOrIxtiuRH5S2WA9G9LlS9xyluNw3xJ0YzuM=";
     };
 
     preConfigure = lib.concatStringsSep "\n" (lib.mapAttrsToList (name: path: ''
