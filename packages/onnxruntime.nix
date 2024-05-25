@@ -1,6 +1,6 @@
 {
-  stdenv,
   fetchurl,
+  lib,
   stdenvNoCC,
   makeWrapper,
 }:
@@ -19,7 +19,7 @@ stdenvNoCC.mkDerivation rec {
     cp -r ./* $out/
   '';
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "ONNX Runtime";
     homepage = "https://github.com/microsoft/onnxruntime";
     license = licenses.mit;
