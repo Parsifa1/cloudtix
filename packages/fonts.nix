@@ -1,11 +1,14 @@
-{ lib, stdenvNoCC, fetchurl }:
-
+{
+  lib,
+  stdenvNoCC,
+  fetchurl,
+}:
 stdenvNoCC.mkDerivation rec {
   pname = "fonts";
-  version = "master";
+  commit = "b4a552e";
 
   src = fetchurl {
-    url = "https://github.com/Parsifa1/Fonts/archive/refs/heads/${version}.tar.gz";
+    url = "https://github.com/Parsifa1/Fonts/archive/${commit}.tar.gz";
     hash = "sha256-lebL8iGvddasqez5hGbr2bc05PCni0oQ9Du20IE7jog=";
   };
 
@@ -23,6 +26,6 @@ stdenvNoCC.mkDerivation rec {
     description = "test";
     license = licenses.ofl;
     platforms = platforms.all;
-    maintainers = with maintainers; [ parsifa1 ];
+    maintainers = with maintainers; [parsifa1];
   };
 }
