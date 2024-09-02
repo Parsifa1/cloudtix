@@ -5,7 +5,7 @@
 }:
 stdenvNoCC.mkDerivation rec {
   pname = "fonts";
-  version = "b4a552e";
+  version = "056b547";
 
   src = fetchurl {
     url = "https://github.com/Parsifa1/Fonts/archive/${version}.tar.gz";
