@@ -23,7 +23,7 @@ stdenvNoCC.mkDerivation rec {
 
   meta = with lib; {
     homepage = "https://github.com/Parsifa1/Fonts";
-    description = "test";
+    description = "my fonts";
     license = licenses.ofl;
     platforms = platforms.all;
     maintainers = with maintainers; [parsifa1];
