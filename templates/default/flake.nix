@@ -1,7 +1,6 @@
 {
   description = "virtual environments";
   inputs.utils.url = "github:hercules-ci/flake-parts";
-
   outputs =
     inputs@{ utils, nixpkgs, ... }:
     utils.lib.mkFlake { inherit inputs; } {
@@ -12,16 +11,15 @@
       perSystem =
         { pkgs, system, ... }:
         {
-          _module.args = {
-            pkgs = import nixpkgs {
-              inherit system;
-              config.allowUnfree = true;
-              overlays = [
-                (final: prev: { hello = prev.cowsay; })
+          _module.args.pkgs = import nixpkgs {
+            inherit system;
+            overlays = [
+              (final: prev: {
                 # ...
-              ];
-            };
+              })
+            ];
           };
+
           devShells.default = pkgs.mkShell {
             packages = with pkgs; [
               hello
