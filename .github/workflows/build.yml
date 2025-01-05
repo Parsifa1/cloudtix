@@ -34,7 +34,6 @@ jobs:
         run: nix-instantiate --eval -E '(import <nixpkgs> {}).lib.version'
       - name: Setup cachix
         uses: cachix/cachix-action@v15
-        # Don't replace <YOUR_CACHIX_NAME> here!
         if: ${{ matrix.cachixName != '<YOUR_CACHIX_NAME>' }}
         with:
           name: ${{ matrix.cachixName }}
@@ -51,7 +50,3 @@ jobs:
             -I $PWD
       - name: Build nix packages
         run: nix shell -f '<nixpkgs>' nix-build-uncached -c nix-build-uncached ci.nix -A cacheOutputs
-      - name: Trigger NUR update
-        # Don't replace <YOUR_REPO_NAME> here!
-        if: ${{ matrix.nurRepo != '<YOUR_REPO_NAME>' }}
-        run: curl -XPOST "https://nur-update.nix-community.org/update?repo=${{ matrix.nurRepo }}"
