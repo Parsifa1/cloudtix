@@ -2,7 +2,6 @@
   fetchurl,
   lib,
   stdenvNoCC,
-  # makeWrapper,
 }:
 stdenvNoCC.mkDerivation rec {
   pname = "onnxruntime";
@@ -24,6 +23,5 @@ stdenvNoCC.mkDerivation rec {
     description = "ONNX Runtime";
     homepage = "https://github.com/microsoft/onnxruntime";
     license = licenses.mit;
-    maintainers = [maintainers.none];
   };
 }

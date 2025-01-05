@@ -19,7 +19,7 @@
       legacyPackages = forAllSystems (
         system:
         import ./default.nix {
-          pkgs = nixpkgs.legacyPackages.${system}.appendOverlays [ ];
+          pkgs = import nixpkgs { inherit system; };
         }
       );
       packages = forAllSystems (

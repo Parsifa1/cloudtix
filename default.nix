@@ -1,4 +1,6 @@
-{ pkgs }:
+{
+  pkgs ? import <nixpkgs> { },
+}:
 {
   win32yank = pkgs.callPackage ./packages/win32yank.nix { };
   fonts = pkgs.callPackage ./packages/fonts.nix { };

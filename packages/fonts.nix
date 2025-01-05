@@ -26,6 +26,5 @@ stdenvNoCC.mkDerivation rec {
     description = "my fonts";
     license = licenses.ofl;
     platforms = platforms.all;
-    maintainers = with maintainers; [parsifa1];
   };
 }
