@@ -14,4 +14,5 @@ pkgs.stdenv.mkDerivation {
     cp -r $src $out
   '';
   preferLocalBuild = true;
+  meta.dontBuild = true;
 }
