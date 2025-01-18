@@ -1,7 +1,7 @@
 { pkgs }:
 let
   pname = "qsign";
-  version = "27b450dd7105b0acffbc371367cedb111b809052";
+  version = "3bb125e7401634bd4e2a2dfee5436bc36ff1c33e";
 in
 pkgs.stdenv.mkDerivation {
   inherit pname version;
