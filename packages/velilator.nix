@@ -59,5 +59,7 @@ stdenv.mkDerivation rec {
       artistic2
     ];
     platforms = platforms.unix;
+    dontBuild = true;
   };
+
 }
