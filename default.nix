@@ -8,4 +8,5 @@
   onnxruntime = pkgs.callPackage ./packages/onnxruntime.nix { };
   verilator5008 = pkgs.callPackage ./packages/velilator.nix { };
   qsign = pkgs.callPackage ./packages/qsign.nix { };
+  tree-sitter = pkgs.callPackage ./packages/treesitter.nix { };
 }
