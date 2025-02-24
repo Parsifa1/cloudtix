@@ -29,5 +29,6 @@ pkgs.stdenv.mkDerivation rec {
   meta = {
     description = "Actual Web Rendering in Terminal";
     homepage = "https://github.com/Parsifa1/awrit";
+    extraMeta.broken = !pkgs.stdenv.hostPlatform.isDarwin;
   };
 }
