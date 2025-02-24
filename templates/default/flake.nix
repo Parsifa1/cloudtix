@@ -21,6 +21,7 @@
           };
 
           devShells.default = pkgs.mkShell {
+            name = "cloudtix";
             packages = with pkgs; [
               hello
               #...
