@@ -15,7 +15,10 @@
       forAllSystems = f: nixpkgs.lib.genAttrs systems (system: f system);
     in
     {
-      overlay = _final: prev: { cloudtide = self.packages."${prev.system}"; };
+      overlay = _final: prev: {
+        cloudtide = self.packages."${prev.system}";
+        fastfetch = self.packages."${prev.system}".fastfetch;
+      };
       legacyPackages = forAllSystems (
         system:
         import ./default.nix {
