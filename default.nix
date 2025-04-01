@@ -10,4 +10,5 @@
   qsign = pkgs.callPackage ./packages/qsign.nix { };
   tree-sitter = pkgs.callPackage ./packages/treesitter.nix { };
   fastfetch = pkgs.callPackage ./packages/fastfetch.nix { };
+  distrobox = pkgs.callPackage ./packages/distrobox.nix { };
 }
