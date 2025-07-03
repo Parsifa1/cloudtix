@@ -5,11 +5,11 @@
 }:
 stdenvNoCC.mkDerivation rec {
   pname = "fonts";
-  version = "d4267b2";
+  version = "824f42f";
 
   src = fetchurl {
     url = "https://github.com/Parsifa1/Fonts/archive/${version}.tar.gz";
-    hash = "sha256-bj4hjCHL6hs4BivLQVXBtJy5SW5SnoCo5jBLfXMa4ic=";
+    hash = "sha256-iPEDZL9FRP1fXqIo1APQPYtR6FQg0WIfFy/288OnQw0=";
   };
 
   installPhase = ''
