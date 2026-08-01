@@ -6,7 +6,7 @@
 #   directory = ./my-packages;
 # }
 {
-
+  wslu = pkgs.callPackage ./packages/wslu.nix { };
   fonts = pkgs.callPackage ./packages/fonts.nix { };
   awrit = pkgs.callPackage ./packages/awrit.nix { };
   qsign = pkgs.callPackage ./packages/qsign.nix { };
