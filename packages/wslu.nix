@@ -1,4 +1,5 @@
 {
+  pkgs,
   lib,
   stdenv,
   fetchFromGitHub,
@@ -40,6 +41,7 @@ stdenv.mkDerivation (finalAttrs: {
     changelog = "https://github.com/wslutilities/wslu/releases/tag/v${finalAttrs.version}";
     license = lib.licenses.gpl3Plus;
     maintainers = with lib.maintainers; [ jamiemagee ];
+    dontBuild = stdenv.hostPlatform.isDarwin;
     platforms = lib.platforms.linux;
   };
 })
