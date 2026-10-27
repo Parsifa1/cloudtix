@@ -15,4 +15,5 @@
   distrobox = pkgs.callPackage ./packages/distrobox.nix { };
   onnxruntime = pkgs.callPackage ./packages/onnxruntime.nix { };
   verilator5008 = pkgs.callPackage ./packages/velilator.nix { };
+  herdr = pkgs.callPackage ./packages/herdr.nix { };
 }
