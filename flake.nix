@@ -23,7 +23,6 @@
         {
           cloudtide = self.packages.${system};
           fastfetch = self.packages.${system}.fastfetch;
-          herdr = self.packages.${system}.herdr;
         };
       legacyPackages = forAllSystems (
         system:
