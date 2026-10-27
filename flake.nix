@@ -36,6 +36,12 @@
       packages = forAllSystems (
         system: nixpkgs.lib.filterAttrs (_: v: nixpkgs.lib.isDerivation v) self.legacyPackages.${system}
       );
+      checks = forAllSystems (
+        system:
+        nixpkgs.lib.filterAttrs (
+          _: v: !(v.meta.dontBuild or false) && !(v.meta.broken or false)
+        ) self.packages.${system}
+      );
       templates = rec {
         devshell = {
           path = ./templates/default;
