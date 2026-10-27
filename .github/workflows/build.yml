@@ -10,23 +10,25 @@ on:
   workflow_dispatch:
 jobs:
   build:
+    name: ${{ matrix.name }}
     strategy:
       matrix:
-        cachixName:
-          - cloudtide
-        nixPath:
-          - nixpkgs=https://github.com/NixOS/nixpkgs/archive/refs/heads/nixpkgs-unstable.tar.gz
-        runner:
-          - ubuntu-latest
-          - macos-latest
+        include:
+          - name: linux
+            runner: ubuntu-latest
+          - name: darwin
+            runner: macos-latest
     runs-on: ${{ matrix.runner }}
+    env:
+      CACHIX_NAME: cloudtide
+      NIX_PATH: nixpkgs=https://github.com/NixOS/nixpkgs/archive/refs/heads/nixpkgs-unstable.tar.gz
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
       - name: Install nix
         uses: cachix/install-nix-action@v30
         with:
-          nix_path: "${{ matrix.nixPath }}"
+          nix_path: "${{ env.NIX_PATH }}"
           extra_nix_config: |
             experimental-features = nix-command flakes
             access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
@@ -34,9 +36,8 @@ jobs:
         run: nix-instantiate --eval -E '(import <nixpkgs> {}).lib.version'
       - name: Setup cachix
         uses: cachix/cachix-action@v15
-        if: ${{ matrix.cachixName != '<YOUR_CACHIX_NAME>' }}
         with:
-          name: ${{ matrix.cachixName }}
+          name: ${{ env.CACHIX_NAME }}
           signingKey: "${{ secrets.CACHIX_SIGNING_KEY }}"
           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
       - name: Check evaluation
