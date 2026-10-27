@@ -1,11 +1,17 @@
 {
   inputs = {
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    herdr = {
+      url = "github:Parsifa1/herdr/feat/quic-endpoint";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   description = "My personal NUR repository";
   outputs =
     {
       self,
       nixpkgs,
+      herdr,
     }:
     let
       systems = [
@@ -23,6 +29,7 @@
         {
           cloudtide = self.packages.${system};
           fastfetch = self.packages.${system}.fastfetch;
+          herdr = self.packages.${system}.herdr;
         };
       legacyPackages = forAllSystems (
         system:
@@ -41,12 +48,18 @@
             config.allowUnfree = true;
           };
         in
-        nixpkgs.lib.filterAttrs (
-          _: v:
-          nixpkgs.lib.isDerivation v
-          && nixpkgs.lib.meta.availableOn pkgs.stdenv.hostPlatform v
-          && !(v.meta.dontBuild or false)
-        ) self.legacyPackages.${system}
+        let
+          legacy = nixpkgs.lib.filterAttrs (
+            _: v:
+            nixpkgs.lib.isDerivation v
+            && nixpkgs.lib.meta.availableOn pkgs.stdenv.hostPlatform v
+            && !(v.meta.dontBuild or false)
+          ) self.legacyPackages.${system};
+        in
+        legacy
+        // nixpkgs.lib.optionalAttrs (herdr.packages ? ${system}.herdr) {
+          herdr = herdr.packages.${system}.herdr;
+        }
       );
       checks = self.packages;
       templates = rec {
