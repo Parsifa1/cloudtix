@@ -34,14 +34,21 @@
         }
       );
       packages = forAllSystems (
-        system: nixpkgs.lib.filterAttrs (_: v: nixpkgs.lib.isDerivation v) self.legacyPackages.${system}
-      );
-      checks = forAllSystems (
         system:
+        let
+          pkgs = import nixpkgs {
+            inherit system;
+            config.allowUnfree = true;
+          };
+        in
         nixpkgs.lib.filterAttrs (
-          _: v: !(v.meta.dontBuild or false) && !(v.meta.broken or false)
-        ) self.packages.${system}
+          _: v:
+          nixpkgs.lib.isDerivation v
+          && nixpkgs.lib.meta.availableOn pkgs.stdenv.hostPlatform v
+          && !(v.meta.dontBuild or false)
+        ) self.legacyPackages.${system}
       );
+      checks = self.packages;
       templates = rec {
         devshell = {
           path = ./templates/default;
