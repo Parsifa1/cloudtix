@@ -36,7 +36,7 @@ stdenv.mkDerivation rec {
   ];
   nativeCheckInputs = [ which ];
 
-  doCheck = stdenv.isLinux; # darwin tests are broken for now...
+  doCheck = stdenv.hostPlatform.isLinux; # darwin tests are broken for now...
   checkTarget = "test";
 
   preConfigure = "autoconf";
@@ -45,7 +45,7 @@ stdenv.mkDerivation rec {
     patchShebangs bin/* src/{flexfix,vlcovgen} test_regress/{driver.pl,t/*.pl}
   '';
 
-  postInstall = lib.optionalString stdenv.isLinux ''
+  postInstall = lib.optionalString stdenv.hostPlatform.isLinux ''
     for x in $(ls $out/bin/verilator*); do
       wrapProgram "$x" --set LOCALE_ARCHIVE "${glibcLocales}/lib/locale/locale-archive"
     done
