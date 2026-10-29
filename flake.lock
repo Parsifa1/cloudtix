@@ -1,27 +1,5 @@
 {
   "nodes": {
-    "herdr": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ],
-        "rust-overlay": "rust-overlay"
-      },
-      "locked": {
-        "lastModified": 1793271448,
-        "narHash": "sha256-Bq8JGPC73nEa6QfxgUZjOFs56/9KUMGRYDn1iArEU+g=",
-        "owner": "Parsifa1",
-        "repo": "herdr",
-        "rev": "87aa765ae9a991179d7845255d438a26357e1c1d",
-        "type": "github"
-      },
-      "original": {
-        "owner": "Parsifa1",
-        "ref": "feat/quic-endpoint",
-        "repo": "herdr",
-        "type": "github"
-      }
-    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1792842277,
@@ -40,29 +18,7 @@
     },
     "root": {
       "inputs": {
-        "herdr": "herdr",
         "nixpkgs": "nixpkgs"
-      }
-    },
-    "rust-overlay": {
-      "inputs": {
-        "nixpkgs": [
-          "herdr",
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1793086596,
-        "narHash": "sha256-ObKS44vw4IIVpQ69YJzUGjZ0IwnpWoUlwjJSY7gefdo=",
-        "owner": "oxalica",
-        "repo": "rust-overlay",
-        "rev": "c7e9d512653a35ef4d5879c3df4d44d7b78d0e6d",
-        "type": "github"
-      },
-      "original": {
-        "owner": "oxalica",
-        "repo": "rust-overlay",
-        "type": "github"
       }
     }
   },
