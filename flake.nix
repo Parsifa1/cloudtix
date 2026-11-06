@@ -52,6 +52,7 @@
         in
         legacy
       );
+      checks = self.packages;
       templates = rec {
         devshell = {
           path = ./templates/default;
